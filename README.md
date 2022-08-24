@@ -4,8 +4,8 @@ This project is create the data structure for vet_clinic. Using a table store an
 
 # Built with 
 
-   -SQL
-   -pgadmin 4
+   - SQL
+   - pgadmin 4
 
 Author
 
