@@ -1,5 +1,10 @@
 /* Database schema to keep the structure of entire database. */
 
 CREATE TABLE animals (
-    name varchar(100)
-);
+  id int NOT NULL,
+  name varchar NOT NULL,
+  date_of_birth date NOT NULL,
+  escape_attempts int NOT NULL,
+  neutere BOOLEAN NOT NULL,
+  weight_kg decimal NOT NULL
+) 
