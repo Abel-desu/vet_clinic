@@ -20,7 +20,8 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
-## Acknowledgements
-Original design idea by: [@Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
-Show your support
+## Show your support
 Give a ⭐️ if you like this project!
+
+## 📝 License
+This project is MIT licensed.
