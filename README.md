@@ -3,8 +3,8 @@
 This project is create the data structure for vet_clinic. Using a table store animals' information, insert some data into it, and query it using PostgreSQL.
 
 # Built with 
-SQL
-pgadmin 4
+-SQL
+-pgadmin 4
 
 Author
 
