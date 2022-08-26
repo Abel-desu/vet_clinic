@@ -1,3 +1,4 @@
+
 INSERT INTO animals (id, "name", date_of_birth, escape_attempts, neutered, weight_kg, species) VALUES 
 ('1', 'Charmander', '2020-02-03', '0', '0', '11', ''), 
 ('2', 'Plantmon', '2021-11-15', '2', '1', '5.7', ''), 
