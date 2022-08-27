@@ -1,39 +1,47 @@
-INSERT INTO animals (id, "name", date_of_birth, escape_attempts, neutered, weight_kg, species) VALUES 
-('1', 'Charmander', '2020-02-03', '0', '0', '11', ''), 
-('2', 'Plantmon', '2021-11-15', '2', '1', '5.7', ''), 
-('3', 'Squirtle', '1993-04-02', '3', '0', '12.13', ''), 
-('4', ' Angemon', '2015-05-12', '1', '0', '45', ''), 
-('5', 'Boarmon', '2005-05-07', '7', '1', '20.4', ''), 
-('6', 'Blossom', '1998-11-13', '3', '1', '17', ''),
- ('7', 'Ditto', '2022-05-14', '4', '1', '22', '')
+insert into animals (name,date_of_birth,escape_attempts,neutered,weight_kg)
+    values('Charmander','2020-02-08',0,false,-11);
 
- BEGIN
-UPDATE animals SET species='unspecified';
-SELECT * FROM animals;
-ROLLBACK;
-BEGIN ACTION
-delete from animals where animals.date_of_birth > '2021-1-1';
-SELECT * from animals
-SAVEPOINT sp1;
-SELECT * from animals
-UPDATE animals set weight_kg = weight_kg * -1;
-SELECT * from animals
-ROLLBACK to sp1
-SELECT * from animals
-UPDATE animals set weight_kg = weight_kg * -1 where weight_kg < 0;
-SELECT * from animals
-commit
-SELECT * from animals
-SELECT count(*) from animals;
-SELECT count(*) from animals where escape_attempts = 0;
-SELECT avg(weight_kg) from animals;
-SELECT avg(escape_attempts) from animals group by neutered;
-SELECT species ,min(weight_kg) , max(weight_kg) from animals GROUP by species;
-SELECT species, avg(escape_attempts) from animals
-where date_of_birth > '1990-01-01' and date_of_birth < '2000-01-01'
-group by species; 
+  insert into animals (name,date_of_birth,escape_attempts,neutered,weight_kg)
+    values('Plantmon','2021-11-15',2,TRUE,-5.7);    
+
+   insert into animals (name,date_of_birth,escape_attempts,neutered,weight_kg)
+ values('Squirtle','1993-04-02',3,false,-12.13); 
+ insert into animals (name,date_of_birth,escape_attempts,neutered,weight_kg)
+ values('Angemon','2005-06-12',1,true,-45); 
+ insert into animals (name,date_of_birth,escape_attempts,neutered,weight_kg)
+ values  ('Boarmon','2005-06-07',7,true,20.4); 
+ insert into animals (name,date_of_birth,escape_attempts,neutered,weight_kg)
+ values    ('Blossom','1998-10-13',3,true,17);   
+ insert into animals (name,date_of_birth,escape_attempts,neutered,weight_kg)
+ values    ('Ditto','2022-05-14',4,true,22)
 
 
+BEGIN
+insert into owners(full_name,age)
+values('Sam Smith',34),
+      ('Jennifer Orwell' , 19),
+	   ('Bob',45),
+	   ('Melody Pond',77),
+	   ('Dean Winchester',14),
+	   ('Jodie Whittaker',38)
+COMMIT;
 
+BEGIN;
+ INSERT into species (name) values('Pokemon'),('Digimon')  
+COMMIT;
 
+BEGIN; 
+UPDATE animals SET species_id = (SELECT id FROM species WHERE name = 'Digimon' )
+WHERE name LIKE '%mon%';
+UPDATE animals SET species_id =(  SELECT id FROM species WHERE name = 'Pokemon')
+WHERE species_id IS NULL;
+COMMIT;
+
+Update animals Set owner_id = 1 Where name = 'Agumon'
+
+Update animals Set owner_id = 2 WHERE name = 'Gabumon' OR name = 'Pikachu';
+
+Update animals Set owner_id = 3WHERE name IN('Devimon', 'Plantmon');
+
+Update animals Set owner_id = 5 WHERE name IN('Angemon','Boarmon');
 

@@ -5,6 +5,5 @@ CREATE TABLE animals (
   escape_attempts int NOT NULL,
   neutered boolean NOT NULL,
   weight_kg decimal(5,0) NOT NULL,
-species varchar(10) DEFAULT NULL
 ) 
-alter table animals add column species VARCHAR(50);
+alter table animals add column species VARCHAR(20);
