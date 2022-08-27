@@ -40,3 +40,28 @@ ALTER TABLE animals
         FOREIGN KEY (owner_id)
             REFERENCES owners(id)
 
+
+create table vets(id int generated always as identity PRIMARY key ,
+	name varchar(40),
+	age int ,
+  date_of_graduation date 
+				 );
+
+CREATE TABLE specializations (
+    vet_id INT,
+    species_id INT,
+    PRIMARY KEY(vet_id, species_id),
+    CONSTRAINT fk_vets
+      FOREIGN KEY(vet_id) 
+	  REFERENCES vets(id),
+    CONSTRAINT fk_species
+      FOREIGN KEY(species_id) 
+	  REFERENCES species(id)
+);
+
+CREATE TABLE visits (
+  vet_id INT REFERENCES vets(id),
+  animal_id INT REFERENCES animals(id),
+  date_of_visit DATE,
+	PRIMARY KEY ("ID")
+);
